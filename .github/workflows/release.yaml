@@ -30,4 +30,4 @@ jobs:
         run: |
           gh release create "${GITHUB_REF_NAME}" dist/* \
             --title "${GITHUB_REF_NAME}" \
-            --notes "Demo release fixture for attestor's C07 provenance collector (issue #19)."
+            --notes "Demo release fixture for attestward's C07 provenance collector (issue #19)."
