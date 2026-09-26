@@ -2,6 +2,8 @@ name: build
 on: [push, pull_request]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Never execute external pull-request code on a persistent private host.
+    if: github.event_name != 'pull_request' && github.event_name != 'pull_request_target' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, private-ubuntu]
     steps:
       - run: echo ok
