@@ -1,5 +1,7 @@
 name: build
-on: [push, pull_request]
+# The PR event uses the trusted base workflow so a fork cannot rewrite the
+# repository guard and schedule code on a persistent private runner.
+on: [push, pull_request_target]
 jobs:
   build:
     # Never execute external pull-request code on a persistent private host.
